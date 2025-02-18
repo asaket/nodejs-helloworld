@@ -6,7 +6,7 @@ const server = http.createServer((req, res) => {
   const clientIP = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   const timestamp = new Date().toISOString();
   
-  console.log(`[${timestamp}] Request received from IP: ${clientIP}`);
+  console.log(`[${timestamp}] Request received from IP: ${clientIP}, Method: ${req.method}, URL: ${req.url}`);
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
